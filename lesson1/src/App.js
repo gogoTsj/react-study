@@ -1,6 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
-import React, {useEffect} from 'react'
+import React from 'react'
 import MyForm from './MyForm'
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
 			 <header className="App-header">
 				 <img src={logo} className="App-logo" alt="logo" />
 			 </header>
-			 <my-form />
+			 <MyForm />
 		 </div>
 	);
 }

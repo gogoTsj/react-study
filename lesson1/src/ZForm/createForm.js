@@ -41,7 +41,7 @@ export default function createForm(Cmp) {
 				const rule = rules && rules[0]
 				if (rule && rule.required && (value === undefined || value === "")) {
 					err.push({
-						[name]: rule.message,
+						[field]: rule.message,
 						value
 					})
 				}
@@ -55,10 +55,12 @@ export default function createForm(Cmp) {
 
 		getForm = () => {
 			return {
-				getFieldDecorator: this.getFieldDecorator,
-				setFieldValue: this.setFieldValue,
-				getFieldsValue: this.getFieldsValue,
-				validateFields: this.validateFields
+				form: {
+					getFieldDecorator: this.getFieldDecorator,
+					setFieldValue: this.setFieldValue,
+					getFieldsValue: this.getFieldsValue,
+					validateFields: this.validateFields
+				}
 			}
 		}
 
