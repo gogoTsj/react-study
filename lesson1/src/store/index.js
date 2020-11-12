@@ -1,23 +1,18 @@
-// import {createStore, applyMiddleware, combineReducers} from 'redux'
-import {createStore, applyMiddleware, combineReducers} from '../lesson2/zRedux'
-// import logger from 'redux-logger'
-// import thunk from 'redux-thunk'
-import logger from '../lesson2/logger'
-import thunk from '../lesson2/thunk'
-import zPromise from '../lesson2/zPromise'
-// import createStore from '../lesson2/zRedux'
+import {createStore, combineReducers} from "redux";
 
-function countReducer(state = 0, action) {
-	switch (action.type) {
+// 定义修改规则
+export const countReducer = (state = 0, {type, payload = 1}) => {
+	console.log('add1', type)
+	switch (type) {
 		case "ADD":
-			return state + 1
+			return state + payload;
 		case "MINUS":
-			return state - 1
+			return state - payload;
 		default:
-			return state
+			return state;
 	}
-}
+};
 
-const store = createStore(combineReducers({count: countReducer}), applyMiddleware(thunk, zPromise, logger))
+const store = createStore(combineReducers({count: countReducer}));
 
-export default store
+export default store;
